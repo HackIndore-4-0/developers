@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: st-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: signalthread
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d signalthread"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  neo4j:
+    image: neo4j:5-community
+    container_name: st-neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/testneo123
+      NEO4J_server_memory_heap_max__size: 1G
+    volumes:
+      - neo4jdata:/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: st-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+
+volumes:
+  pgdata:
+  neo4jdata:
