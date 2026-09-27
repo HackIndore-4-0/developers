@@ -1,0 +1,13 @@
+# Acunetix Integration Engine Configuration
+acunetix:
+  base_url: "https://localhost:3443"
+  verify_ssl: false
+  timeout_seconds: 30
+  max_retries: 3
+  rate_limit_per_second: 10.0
+  orchestrator:
+    max_concurrent_scans: 3
+    poll_interval_seconds: 5.0
+  remediation:
+    auto_generate_waf_rules: true
+    default_choke_points_top_k: 3
