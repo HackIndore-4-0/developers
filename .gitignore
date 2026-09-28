@@ -1,32 +1,51 @@
-# Logs
-logs
-*.log
-localtunnel.txt
-localtunnel-err.txt
-lt-url.txt
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-node_modules
-dist
-dist-ssr
+# Environment variables & local secrets
+.env
+.env.local
 *.local
 
-# Secrets
-.env
-.env.*
-!.env.example
+# Database / local data
+*.sqlite3
+*.db
+pgdata/
+neo4jdata/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# Testing / Cache
+.pytest_cache/
+.coverage
+htmlcov/
+.hypothesis/
+.mypy_cache/
